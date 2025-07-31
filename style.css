@@ -1,0 +1,122 @@
+/* --- Global Styles & Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Softer, textured background */
+    background-color: #f4f7f6;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4d6d8' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    padding: 20px;
+}
+
+/* --- Quote Container --- */
+.quote-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    padding: 50px;
+    border-radius: 20px;
+    /* Softer, layered shadow for depth */
+    box-shadow: 0 8px 32px 0 rgba(100, 100, 100, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    max-width: 750px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+/* --- Quote Text & Author Styling --- */
+/* Add a transition for a smooth fade-in/out effect */
+#quote-wrapper {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.quote-text {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: #2c3e50; /* Dark, desaturated blue */
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.quote-author {
+    font-size: 16px;
+    font-weight: 500;
+    color: #7f8c8d; /* Muted gray */
+    margin-bottom: 40px;
+}
+
+/* --- Button Styling --- */
+#new-quote-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px; /* Space between icon and text */
+    font-family: 'Poppins', sans-serif;
+    /* A more sophisticated, calm color */
+    background-color: #48a9a6;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(72, 169, 166, 0.2);
+}
+
+#new-quote-btn:hover {
+    background-color: #40918e;
+    box-shadow: 0 6px 20px rgba(72, 169, 166, 0.3);
+    transform: translateY(-3px);
+}
+
+#new-quote-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Animate the icon inside the button */
+#new-quote-btn .icon-rotate {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.4s ease;
+}
+
+#new-quote-btn:hover .icon-rotate {
+    transform: rotate(180deg);
+}
+
+/*
+## Responsive Design for Mobile Devices
+This section adjusts the styles for screens 600px wide or smaller.
+*/
+@media (max-width: 600px) {
+    .quote-container {
+        /* Reduce padding for smaller screens */
+        padding: 30px 25px;
+    }
+
+    .quote-text {
+        /* Decrease quote font size */
+        font-size: 20px;
+    }
+
+    .quote-author {
+        /* Decrease author font size */
+        font-size: 14px;
+    }
+
+    #new-quote-btn {
+        /* Make the button more compact */
+        padding: 12px 20px;
+        font-size: 15px;
+        gap: 8px;
+    }
+}
