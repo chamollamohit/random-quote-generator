@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded',() => {
         finally {
             generateBtn.disabled = false
             copyBtn.disabled = false
+            copyBtn.textContent = 'Copy'
         }
 
     })
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded',() => {
         saveToClipboard(quoteBlock.textContent)
         copyBtn.textContent = 'Copied'
     })
-    copyBtn.textContent = 'Copy'
+    
 
 // Function which get Quote from API and return the quote when called
     async function getQuote() {
