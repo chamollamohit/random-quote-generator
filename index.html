@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="quote-container">
+        
         <div id="quote-wrapper">
             <blockquote class="quote-text" id="quote">
                 Click the button below to fetch a quote!
@@ -22,13 +22,23 @@
             </p>
         </div>
 
-        <button id="new-quote-btn" >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-rotate">
-                <path d="M3 2c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4c0-1.1-.9-2-2-2z"/><path d="M21 8h-7a2 2 0 0 0-2 2v7c0 1.1.9 2 2 2h7a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z"/>
-            </svg>
-            <span>New Quote</span>
-        </button>
+        <div id="skeleton-loader" class="hidden">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
+        </div>
+
+        <div class="button-container">
+            <button id="copy-btn" class="hidden">
+            </button>
+            <button id="new-quote-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-rotate">
+                    <path d="M3 2c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4c0-1.1-.9-2-2-2z"/><path d="M21 8h-7a2 2 0 0 0-2 2v7c0 1.1.9 2 2 2h7a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z"/>
+                </svg>
+                <span>New Quote</span>
+            </button>
+        </div>
     </div>
-<script src="./script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

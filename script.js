@@ -1,24 +1,61 @@
 
 // Here we are saving all require elements like bitton, Quote Block, Author Block in Varaile
-let generateBtn = document.querySelector('#new-quote-btn')
-let quoteBlock = document.querySelector('.quote-text')
-let authorBlock = document.querySelector('.quote-author')
+document.addEventListener('DOMContentLoaded',() => {
+    let generateBtn = document.querySelector('#new-quote-btn')
+    let quoteBlock = document.querySelector('.quote-text')
+    let authorBlock = document.querySelector('.quote-author')
+    let copyBtn = document.querySelector('#copy-btn')
+    let quoteWrapper = document.getElementById('quote-wrapper')
+    let skeletonLoader = document.getElementById('skeleton-loader')
 
-// This is a Quote Generator Function {Always rember async function retun a promise so always use await to get the value from async fucntion}
-// .Json is used here to convert the data we recieved from API to a object this also takes time so use await also
-async function quoteGenerator() {
-    var quote = await fetch('https://api.freeapi.app/api/v1/public/quotes/quote/random')
-    var quote = await quote.json()
-    return quote
-}
+// Adding Eventlistner to Generate Button
+    generateBtn.addEventListener('click',async () => {
+        quoteWrapper.classList.add('hidden') // Unhidding Skelton Screen
+        skeletonLoader.classList.remove('hidden') // Hidding Quote Screen
+        generateBtn.disabled = true
+        copyBtn.disabled = true
 
-// Here we added Event Listner on Get Quote Button once the button is clicked Quote Generator function is invoked and we update the Quote Block and Author Block with the updated values
-generateBtn.addEventListener('click', async () => {
-    let quote = await quoteGenerator()
-    let quoteText = await quote.data.content
-    let quoteAuthor = await quote.data.author
-    quoteBlock.innerHTML = quoteText
-    authorBlock.innerHTML = quoteAuthor
-    
+        try {
+            const quoteData = await getQuote() // Getting Quote
+            let {data} = quoteData
+            quoteBlock.textContent = data.content
+            authorBlock.textContent = data.author
+            quoteWrapper.classList.remove('hidden') // Hidding Skelton Screen
+            skeletonLoader.classList.add('hidden') // Unhidding Quote Screen
+            copyBtn.classList.remove('hidden')
+        } catch (error) {
+            quoteBlock.textContent = error
+            authorBlock.textContent = "Error"
+        }
+        finally {
+            generateBtn.disabled = false
+            copyBtn.disabled = false
+        }
+
+    })
+    copyBtn.addEventListener('click', () => {
+        saveToClipboard(quoteBlock.textContent)
+        copyBtn.textContent = 'Copied'
+    })
+    copyBtn.textContent = 'Copy'
+
+// Function which get Quote from API and return the quote when called
+    async function getQuote() {
+        const response = await fetch('https://api.freeapi.app/api/v1/public/quotes/quote/random')
+        const quote = await response.json()
+        if (quote.success === false) {
+            throw new Error("Unable to Fetch the Quote.... Try Again after some time !!!")
+        }
+        return quote
+        
+    }
+
+// Function to save Quote in CLipboard
+    async function saveToClipboard(text) {
+        try {
+            await navigator.clipboard.writeText(text) // navigator.clipboard.writeText(text) use to save content in clipboard
+        } catch (error) {
+            return error
+        }
+    }
 })
-

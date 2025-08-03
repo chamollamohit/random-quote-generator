@@ -120,3 +120,76 @@ This section adjusts the styles for screens 600px wide or smaller.
         gap: 8px;
     }
 }
+
+/* --- Button Container --- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 40px;
+}
+
+/* Remove margin from the individual button */
+#new-quote-btn {
+    margin-bottom: 0;
+}
+
+/* Style for the new Copy button */
+#copy-btn {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#copy-btn:hover {
+    background-color: #e2e8f0;
+}
+
+
+/* --- Skeleton Loader --- */
+#skeleton-loader {
+    width: 100%;
+}
+
+.skeleton-line {
+    height: 20px;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    /* Shimmer animation */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-line:nth-child(2) {
+    width: 90%;
+}
+
+.skeleton-line.short {
+    width: 50%;
+    height: 16px;
+    margin-top: 25px;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #e2e8f0;
+    }
+    50% {
+        background-color: #cbd5e1;
+    }
+    100% {
+        background-color: #e2e8f0;
+    }
+}
+
+/* --- Utility Class --- */
+.hidden {
+    display: none;
+}
