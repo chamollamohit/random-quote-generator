@@ -1,6 +1,9 @@
 # 🎨 Interactive Quote Generator
 A sleek, modern, and fully responsive web application that fetches random quotes from an API and displays them with a clean UI and smooth animations.
 
+# Demo 
+➡️ [Live Demo](https://mohit-random-quote-generator.netlify.app/)
+
 # ✨ Features
 
 **Random Quotes :** Fetches quotes on-demand from the [Free API](https://api.freeapi.app/) service.
